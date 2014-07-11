@@ -1,3 +1,13 @@
+# Usually I would extract the getData() function into its own file to be
+# sourced by all plot scripts, but I deliberately decided against it since the
+# instructions explicitly state that "There should be four PNG files and four
+# R code files" in my GitHub repository and I want to be formally on the safe
+# side here. Thus I had to copy the source code of the getData() function
+# into every plot script.
+# This function assumes the source data is already located in the current
+# working directory which should be formally safe as well, since the
+# instructions only state that my code file "should include code for reading
+# the data" and not for downloading the data.
 getData <- function() {
     fieldNames <- names (
         read.table (
