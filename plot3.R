@@ -37,32 +37,37 @@ png (
     height   = 480,
     units    = "px"
 )
-plot (
-    x    = data$DateTime,
-    y    = data$Sub_metering_1,
-    type = "n",
-    xlab = "",
-    ylab = "Energy sub metering"
-)
-lines (
-    x   = data$DateTime,
-    y   = data$Sub_metering_1,
-    col = "black"
-)
-lines (
-    x   = data$DateTime,
-    y   = data$Sub_metering_2,
-    col = "red"
-)
-lines (
-    x   = data$DateTime,
-    y   = data$Sub_metering_3,
-    col = "blue"
-)
-legend (
-    x      = "topright",
-    legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-    col    = c("black", "red", "blue"),
-    lty    = "solid"
+with (
+    data = data,
+    expr = {
+        plot (
+            x    = DateTime,
+            y    = Sub_metering_1,
+            type = "n",
+            xlab = "",
+            ylab = "Energy sub metering"
+        )
+        lines (
+            x   = DateTime,
+            y   = Sub_metering_1,
+            col = "black"
+        )
+        lines (
+            x   = DateTime,
+            y   = Sub_metering_2,
+            col = "red"
+        )
+        lines (
+            x   = DateTime,
+            y   = Sub_metering_3,
+            col = "blue"
+        )
+        legend (
+            x      = "topright",
+            legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+            col    = c("black", "red", "blue"),
+            lty    = "solid"
+        )
+    }
 )
 dev.off()

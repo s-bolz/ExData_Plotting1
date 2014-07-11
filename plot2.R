@@ -37,15 +37,20 @@ png (
     height   = 480,
     units    = "px"
 )
-plot (
-    x    = data$DateTime,
-    y    = data$Global_active_power,
-    type = "n",
-    xlab = "",
-    ylab = "Global Active Power (kilowatts)"
-)
-lines (
-    x = data$DateTime,
-    y = data$Global_active_power
+with (
+    data = data,
+    expr = {
+        plot (
+            x    = DateTime,
+            y    = Global_active_power,
+            type = "n",
+            xlab = "",
+            ylab = "Global Active Power (kilowatts)"
+        )
+        lines (
+            x = DateTime,
+            y = Global_active_power
+        )
+    }
 )
 dev.off()
